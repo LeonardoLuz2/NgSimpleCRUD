@@ -1,0 +1,30 @@
+<button mat-raised-button [routerLink]="['/cliente-register']" >Add New</button>
+
+<table style="width: 80%;" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.nome}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> E-mail </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Action </th>   
+        <td mat-cell *matCellDef="let element"> 
+            <button mat-raised-button [routerLink]="['/cliente-update', element.id]" >Edit</button> 
+            <button mat-raised-button (click)="removeCliente(element.id)">Remove</button> 
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

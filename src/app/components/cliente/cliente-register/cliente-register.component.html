@@ -1,0 +1,10 @@
+<form [formGroup]="form" class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Nome" formControlName="nome">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Email" formControlName="email">
+  </mat-form-field>
+  <button mat-raised-button (click)="addCliente()">Register</button>
+</form>
